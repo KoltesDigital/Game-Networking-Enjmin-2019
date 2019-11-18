@@ -11,6 +11,7 @@ services:
       - traefik.http.routers.enjmin-blog-api.tls.certResolver=basic
       - traefik.http.services.enjmin-blog-api.loadBalancer.server.port=80
     networks:
+      - api
       - web
     restart: always
   blog-frontend:
@@ -39,8 +40,11 @@ services:
     restart: always
   redis:
     image: redis:5.0-alpine
+    networks:
+      - api
     restart: always
 
 networks:
+  api:
   web:
     external: true
