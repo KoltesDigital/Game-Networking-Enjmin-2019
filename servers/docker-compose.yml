@@ -37,6 +37,9 @@ services:
     networks:
       - web
     restart: always
+  redis:
+    image: redis:5.0-alpine
+    restart: always
 
 networks:
   web:
