@@ -45,18 +45,6 @@ services:
     networks:
       - db
     restart: always
-  cgwire:
-    image: cgwire/cgwire
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.cgwire.entryPoints=https
-      - traefik.http.routers.cgwire.rule=Host(`cgwire.enjmin.koltes.digital`)
-      - traefik.http.routers.cgwire.service=cgwire
-      - traefik.http.routers.cgwire.tls.certResolver=basic
-      - traefik.http.services.cgwire.loadBalancer.server.port=80
-    networks:
-      - web
-    restart: always
 
 networks:
   api:
